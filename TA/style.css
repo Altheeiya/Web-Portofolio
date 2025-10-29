@@ -1,0 +1,287 @@
+
+
+:root {
+  --bg: #0f172a;          
+  --panel: #111827;       
+  --muted: #cbd5e1;       
+  --text: #e5e7eb;        
+  --brand: #22d3ee;       
+  --brand-600: #0891b2;   
+  --border: #1f2937;      
+  --accent: #2dd4bf;      
+  --danger: #ef4444;      
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.6;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg), #0b1220 40%, var(--bg));
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--accent); }
+
+.container {
+  width: min(1120px, 92%);
+  margin-inline: auto;
+}
+
+
+main {
+
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(15, 23, 42, 0.8);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: center;
+  padding: 14px 0;
+}
+
+/* header nav */
+.nav { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; }
+.nav a { padding: 8px 10px; border-radius: 8px; }
+.nav a:hover { background: #0b1220; text-decoration: none; }
+
+/* Hero (Modifikasi) */
+.hero { padding: 60px 0 40px; }
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start; /* Rata kiri */
+}
+.hero-intro {
+  color: var(--brand);
+  font-size: 1.1rem;
+  margin: 0;
+}
+#title-hero {
+  font-size: clamp(2.5rem, 6vw, 4rem); /* Ukuran font responsif */
+  color: var(--text);
+  margin: 0;
+  line-height: 1.1;
+}
+.hero-subtitle {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.1;
+}
+.hero p {
+  max-width: 600px; /* Batasi lebar paragraf hero */
+  text-align: justify;
+}
+
+
+/* Sections */
+.section { padding: 40px 0; }
+.section h2 {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+.section p { text-align: justify; }
+.grid-2 { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+/* List Gaya CV (BARU) */
+.job-entry, .edu-entry {
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-left: 2px solid var(--accent); /* Garis kecil di kiri item CV */
+  padding-left: 15px;
+}
+.job-entry:last-child, .edu-entry:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-left: none; /* Hapus border untuk item terakhir */
+}
+.job-entry h3, .edu-entry h3 {
+  margin: 0 0 5px 0;
+  color: var(--brand);
+}
+.job-entry .meta, .edu-entry .meta {
+  color: var(--muted);
+  font-size: 0.9em;
+  margin-bottom: 10px;
+  display: block; /* Agar paragraf selanjutnya tidak di samping */
+}
+.job-entry ul, .edu-entry ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 10px 0;
+}
+.job-entry li, .edu-entry li {
+  margin-bottom: 5px;
+}
+
+/* Cards (Proyek) */
+.cards { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease;
+  display: flex; /* Untuk layout proyek */
+  flex-direction: column;
+  justify-content: space-between; /* Untuk tombol "Lihat Kode" di bawah */
+}
+.card:hover {
+  transform: translateY(-5px); /* Efek hover sederhana */
+}
+.card h3 {
+  color: var(--brand);
+  margin-top: 0;
+}
+.card p.tech-stack {
+  color: var(--muted);
+  font-size: 0.85em;
+  margin-top: auto; /* Dorong ke bawah */
+}
+.card .btn {
+  align-self: flex-start; /* Ratakan ke kiri di dalam card */
+  margin-top: 15px;
+}
+
+
+/* Form */
+.form { max-width: 680px; }
+.form-control { display: grid; gap: 6px; margin: 12px 0; }
+label { font-weight: 600; color: var(--muted); }
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0b1220;
+  color: var(--text);
+}
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--brand-600); border-color: transparent; }
+.form-actions { display: flex; gap: 12px; margin-top: 8px; }
+
+/* Buttons */
+.btn { 
+  display: inline-block; 
+  padding: 10px 14px; 
+  border-radius: 10px; 
+  border: 1px solid var(--brand); /* Ubah border */
+  background: transparent; /* Ubah background */
+  color: var(--brand); /* Ubah warna teks */
+  transition: background-color 0.2s ease;
+  cursor: pointer; /* Indikator bahwa itu bisa diklik */
+}
+.btn:hover { 
+  background: rgba(34, 211, 238, 0.1); /* Efek hover ala referensi */
+  text-decoration: none; 
+}
+.btn.primary { 
+  background: var(--brand-600); 
+  border-color: transparent; 
+  color: #e6fffb; 
+}
+.btn.primary:hover { background: #0e7490; }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--border); margin-top: 26px; }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+.back-to-top { font-size: .9rem; }
+
+/* Utilities */
+.small { color: var(--muted); font-size: .95rem; }
+hr { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+
+/* sidebars */
+.left-sidebar {
+  width: 40px;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  color: var(--muted);
+}
+
+/* Sidebar Kiri */
+.left-sidebar { left: 32px; }
+.social-media {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.social-media li {
+  font-size: 1.2rem;
+}
+.social-media a {
+  color: var(--muted);
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.social-media a:hover {
+  transform: translateY(-3px);
+  color: var(--brand);
+}
+/* Garis vertikal sidebar kiri */
+.social-media::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 120px;
+  background: var(--border);
+  margin-top: 20px;
+}
+
+
+
+/* responsive */
+
+@media (max-width: 768px) {
+  .left-sidebar {
+    display: none;
+  }
+  main {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-inner { 
+    text-align: left; 
+  }
+  .header-inner { 
+    flex-direction: column; 
+    gap: 10px; 
+  }
+  .footer-inner { 
+    flex-direction: column; 
+    gap: 8px; 
+    text-align: center;
+  }
+  .nav {
+    gap: 8px; 
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .nav a {
+    padding: 6px 8px;
+  }
+}
